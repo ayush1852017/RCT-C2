@@ -9,7 +9,14 @@ export const AllRoutes = () => {
     <Routes>
       <Route path="/" element={<RegisterPageOne />} />
       <Route path="/pagetwo" element={<RegisterPageTwo />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute to="/login">
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
       <Route path="/private" element={<PrivateRoute />} />
     </Routes>
   );
